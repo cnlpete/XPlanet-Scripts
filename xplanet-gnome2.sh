@@ -10,7 +10,14 @@
 homeDir=${HOME}
 
 # Usually the monitor size.
-geometry="1920x1200"
+#trying to guess this...
+geometry=`(xrandr --current | grep '*' | uniq | awk '{print $1}')`
+##and giving a fallback on failure
+if [ -z $geometry ]; then
+	geometry="1680x1050"
+else
+	echo "guessed $geometry"
+fi
 
 # Where the xplanet config file is located
 configFile=$homeDir/.xplanet/config/config
