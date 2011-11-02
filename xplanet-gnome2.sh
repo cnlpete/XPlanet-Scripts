@@ -43,4 +43,10 @@ xplanet -output $outputFile -geometry $geometry -config $configFile \
 	$xoptions
  
 # Update the Gnome backgound
-gconftool-2 -t str -s /desktop/gnome/background/picture_filename $outputFile
+GVERSION=`(gnome-session --version | awk '{print $2}' | cut -d '.' -f1)`
+if [ $GVERSION -eq 3 ]; then
+	##gnome3/unity
+	gsettings set org.gnome.desktop.background picture-uri file:///$outputFile
+else
+	gconftool-2 -t str -s /desktop/gnome/background/picture_filename $outputFile
+fi
