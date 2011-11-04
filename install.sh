@@ -15,7 +15,7 @@ SERVER="eoimages.gsfc.nasa.gov"
 SERVERURI="http://eoimages.gsfc.nasa.gov/ve"
 
 convert=/usr/bin/convert
-convert_opts="-resize 4096x2048 -quality 95"
+convert_opts="-resize 2048x1024 -quality 95"
 
 mkdir -p $XPLANET_DIR
 mkdir -p $XPLANET_CONFIG_DIR
