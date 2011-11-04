@@ -17,6 +17,11 @@ SERVERURI="http://eoimages.gsfc.nasa.gov/ve"
 convert=/usr/bin/convert
 convert_opts="-resize 4096x2048 -quality 95"
 
+mkdir -p $XPLANET_DIR
+mkdir -p $XPLANET_CONFIG_DIR
+mkdir -p $XPLANET_IMAGES_DIR
+mkdir -p $XPLANET_WORLD_DIR
+
 ##if online
 if ping -c2 $SERVER > /dev/null 2>&1; then
 	echo "Installing scripts..."
