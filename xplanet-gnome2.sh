@@ -19,6 +19,11 @@ else
 	echo "guessed $geometry"
 fi
 
+set $(python $homeDir/.xplanet/geoclue.py)
+latitude=$1
+longitude=$2
+echo "using position $latitude , $longitude as position"
+
 # Where the xplanet config file is located
 configFile=$homeDir/.xplanet/config/config
 
@@ -27,7 +32,7 @@ outputFile=$homeDir/.xplanet/images/wall.png
 
 # Here are some options you may want to edit. Read `man xplanet` for
 # a detailed explanation of each option.
-xoptions="-num_times 1 -longitude 0 -latitude 0 -body earth \
+xoptions="-num_times 1 -longitude $longitude -latitude $latitude -body earth \
 	-projection rectangular -quality 100 -light_time -verbosity -1"
 
 # Get the correct earth map

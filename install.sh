@@ -30,6 +30,8 @@ if ping -c2 $SERVER > /dev/null 2>&1; then
 	chmod +x ${XPLANET_DIR}/xplanet-download_clouds.py
 	cp xplanet-gnome2.sh ${XPLANET_DIR}/
 	chmod +x ${XPLANET_DIR}/xplanet-gnome2.sh
+	cp geoclue.py ${XPLANET_DIR}/
+	chmod +x ${XPLANET_DIR}/geoclue.py
 
 	echo "Downloading images..."
 	[ ! -f ${XPLANET_WORLD_DIR}/01.jpg ] && wget -O ${XPLANET_WORLD_DIR}/01.jpg ${SERVERURI}/7100/world.topo.bathy.200401.3x5400x2700.jpg
